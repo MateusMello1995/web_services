@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -24,12 +25,17 @@ public class MainActivity extends AppCompatActivity {
         btnBuscarCep.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 try {
                     CEP retorno = new HttpService(cep.getText().toString()).execute().get();
                     resposta.setText(retorno.toString());
-                } catch (InterruptedException e) {
+                }
+                catch (InterruptedException e) {
+
                     e.printStackTrace();
-                } catch (ExecutionException e) {
+                }
+                catch (ExecutionException e) {
+
                     e.printStackTrace();
                 }
             }

@@ -13,6 +13,8 @@ import java.util.Scanner;
 public class HttpService extends AsyncTask<Void, Void, CEP> {
 
     private final String cep;
+    //adiciona espaço em branco entre palavras
+    private static final String BLANK_SPACE=" ";
 
     public HttpService(String cep) {
         this.cep = cep;
@@ -20,6 +22,7 @@ public class HttpService extends AsyncTask<Void, Void, CEP> {
 
     @Override
     protected CEP doInBackground(Void... voids) {
+
         StringBuilder resposta = new StringBuilder();
 
         if (this.cep != null && this.cep.length() == 8) {
@@ -35,12 +38,18 @@ public class HttpService extends AsyncTask<Void, Void, CEP> {
                 connection.connect();
 
                 Scanner scanner = new Scanner(url.openStream());
+
                 while (scanner.hasNext()) {
+
                     resposta.append(scanner.next());
+                    resposta.append(BLANK_SPACE);
                 }
             } catch (MalformedURLException e) {
+
                 e.printStackTrace();
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
+
                 e.printStackTrace();
             }
         }
