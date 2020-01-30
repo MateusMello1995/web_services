@@ -38,10 +38,18 @@
     </LinearLayout>
 
     <TextView
-        android:layout_height="match_parent"
         android:id="@+id/etMain_resposta"
+        android:layout_width="312dp"
+        android:layout_height="374dp"
         android:textColor="#595959"
-        android:textSize="20sp"
-        android:layout_width="match_parent"/>
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="45dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:onClick="proximaTela"
+        android:text="Button" />
 
 </LinearLayout>
